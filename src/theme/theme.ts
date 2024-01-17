@@ -74,6 +74,18 @@ const theme = createTheme({
         },
       },
     },
+		MuiPaginationItem: {
+			styleOverrides: {
+				root: {
+					color: '#fff',
+					'&.Mui-selected': {
+						color: '#fc4747',
+						backgroundColor: 'rgba(252, 71, 71, 0.12)',
+						borderColor: 'rgba(252, 71, 71, 0.5)'
+					}
+				},
+			}
+		},
     MuiInput: {
       styleOverrides: {
         root: {

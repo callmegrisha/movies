@@ -1,15 +1,15 @@
 import { Box, Typography } from '@mui/material';
-import { Movie } from '../../types';
-import { MovieCard } from '../MovieCard';
+import { TvShow } from '../../types/tvShow';
+import { TvCard } from '../TvCard';
 
-interface MoviesListProps {
-  movies: Movie[] | undefined;
+interface TvListProps {
+  tvs: TvShow[];
 }
 
-export function MoviesList({ movies }: MoviesListProps) {
+export function TvList({ tvs }: TvListProps) {
   return (
     <>
-      {movies && movies.length > 0 ? (
+      {tvs && tvs.length > 0 ? (
         <Box
           sx={{
             display: 'grid',
@@ -18,8 +18,8 @@ export function MoviesList({ movies }: MoviesListProps) {
             columnGap: 5,
           }}
         >
-          {movies?.map((movie: Movie) => (
-            <MovieCard key={movie.id} {...movie} />
+          {tvs?.map((tv: TvShow) => (
+            <TvCard key={tv.id} {...tv} />
           ))}
         </Box>
       ) : (

@@ -1,35 +1,34 @@
 import { useEffect, useState } from 'react';
 import {
-  useGetAllMoviesQuery,
-  useGetSearchMoviesQuery,
+  useGetAllTvShowsQuery,
+	useGetSearchTvShowsQuery,
 } from '../../services/movies';
-import { Movie } from '../../types';
 import useSearch from '../../hooks/useSearch';
-
-export default function useHomePage() {
+import { TvShow } from '../../types/tvShow';
+export default function useTvShowsPage() {
   const { value, query, currentPage, onChangeSearch, setCurrentPage } =
     useSearch();
-  const [posts, setPosts] = useState<Movie[]>([]);
+  const [posts, setPosts] = useState<TvShow[]>([]);
   const [pageQty, setPageQty] = useState<number>(0);
   const {
-    data: movies,
-    isError: moviesError,
-    isLoading: moviesLoading,
-  } = useGetAllMoviesQuery(currentPage);
+    data: tv,
+    isError: tvError,
+    isLoading: tvLoading,
+  } = useGetAllTvShowsQuery(currentPage);
   const {
     data: search,
     isError: searchError,
     isLoading: searchLoading,
-  } = useGetSearchMoviesQuery([currentPage!, query]);
+  } = useGetSearchTvShowsQuery([currentPage!, query]);
 
   useEffect(() => {
-    const data = search?.results.length === 0 ? movies : search;
+    const data = search?.results.length === 0 ? tv : search;
 
     if (data) {
       setPosts(data.results);
       setPageQty(data.total_pages);
     }
-  }, [search, movies, currentPage, query]);
+  }, [search, tv, currentPage, query]);
 
   return {
     value,
@@ -38,8 +37,8 @@ export default function useHomePage() {
     currentPage,
     posts,
     pageQty,
-    moviesError,
-    moviesLoading,
+    tvError,
+    tvLoading,
     searchError,
     searchLoading,
   };

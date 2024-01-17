@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { MoviesResponse } from './movies.types';
 import { Movie } from '../../types';
+import { TvShow } from '../../types/tvShow';
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
@@ -9,6 +10,17 @@ export const movieApi = createApi({
     getAllMovies: builder.query<MoviesResponse<Movie>, number | void>({
       query: (page: number = 1) => ({
         url: `/discover/movie?page=${page}`,
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ODk5ODcyYWY3NzI0NmY2MTcwNjUyMzgwZGM3ZWMwMCIsInN1YiI6IjYzMzM0ODAwNDFlZWUxMDA4MTM0ZjM0YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EARIHG5wWJburSukAnsMozSkpTy8VRyoV_EAnAMX7s0',
+        },
+      }),
+    }),
+    getAllTvShows: builder.query<MoviesResponse<TvShow>, number | void>({
+      query: (page: number = 1) => ({
+        url: `/discover/tv?page=${page}`,
         method: 'GET',
         headers: {
           accept: 'application/json',
@@ -28,9 +40,31 @@ export const movieApi = createApi({
         },
       }),
     }),
-    getAllGenres: builder.query({
+		getSearchTvShows: builder.query<MoviesResponse<TvShow>, [number, string]>({
+      query: ([page = 1, query = '']) => ({
+        url: `/search/tv?query=${query}&page=${page}`,
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ODk5ODcyYWY3NzI0NmY2MTcwNjUyMzgwZGM3ZWMwMCIsInN1YiI6IjYzMzM0ODAwNDFlZWUxMDA4MTM0ZjM0YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EARIHG5wWJburSukAnsMozSkpTy8VRyoV_EAnAMX7s0',
+        },
+      }),
+    }),
+    getAllMovieGenres: builder.query({
       query: () => ({
         url: '/genre/movie/list',
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ODk5ODcyYWY3NzI0NmY2MTcwNjUyMzgwZGM3ZWMwMCIsInN1YiI6IjYzMzM0ODAwNDFlZWUxMDA4MTM0ZjM0YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EARIHG5wWJburSukAnsMozSkpTy8VRyoV_EAnAMX7s0',
+        },
+      }),
+    }),
+		getAllTvGenres: builder.query({
+      query: () => ({
+        url: '/genre/tv/list',
         method: 'GET',
         headers: {
           accept: 'application/json',
@@ -55,7 +89,10 @@ export const movieApi = createApi({
 
 export const {
   useGetAllMoviesQuery,
-  useGetAllGenresQuery,
+	useGetAllTvShowsQuery,
+  useGetAllMovieGenresQuery,
+  useGetAllTvGenresQuery,
   useGetTopRatedQuery,
   useGetSearchMoviesQuery,
+	useGetSearchTvShowsQuery,
 } = movieApi;

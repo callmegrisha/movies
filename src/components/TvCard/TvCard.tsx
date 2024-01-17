@@ -9,21 +9,19 @@ import {
   useTheme,
 } from '@mui/material';
 import Image from 'mui-image';
-import { Movie } from '../../types';
 import { createGenresCollection } from '../../utils/createGenresCollection';
 import { getFullYearFromString } from '../../utils/getFullYearFromString';
-import { useGetAllMovieGenresQuery } from '../../services/movies';
+import { useGetAllTvGenresQuery } from '../../services/movies';
 import { CircleDivider } from '../../assets/svg/CircleDivider';
+import { TvShow } from '../../types/tvShow';
 
-export function MovieCard({
-  id,
+export function TvCard({  id,
   backdrop_path,
-  release_date,
+  first_air_date,
   genre_ids,
-  title,
-}: Movie) {
-  const { app } = useTheme();
-  const { data: { genres } = {} } = useGetAllMovieGenresQuery(null);
+  name}: TvShow) {
+	const { app } = useTheme();
+  const { data: { genres } = {} } = useGetAllTvGenresQuery(null);
   const genresCollection = createGenresCollection(genres);
 
   return (
@@ -75,7 +73,7 @@ export function MovieCard({
           spacing={1}
         >
           <Typography variant="bodyS">
-            {getFullYearFromString(release_date)}
+            {getFullYearFromString(first_air_date)}
           </Typography>
           {genre_ids.map((genreId) => (
             <Typography variant="bodyS" key={genreId}>
@@ -83,7 +81,7 @@ export function MovieCard({
             </Typography>
           ))}
         </Stack>
-        <Typography variant="headingXS">{title}</Typography>
+        <Typography variant="headingXS">{name}</Typography>
       </CardContent>
     </Card>
   );
