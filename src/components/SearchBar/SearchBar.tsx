@@ -1,7 +1,7 @@
+import { ChangeEvent } from 'react';
 import { useTheme } from '@emotion/react';
 import { Search } from '@mui/icons-material';
 import { Box, FormControl, TextField, Theme } from '@mui/material';
-import { ChangeEvent } from 'react';
 
 interface SearchBarProps {
   value: string;

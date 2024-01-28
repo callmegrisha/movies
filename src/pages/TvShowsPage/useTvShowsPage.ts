@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import {
   useGetAllTvShowsQuery,
-	useGetSearchTvShowsQuery,
-} from '../../services/movies';
-import useSearch from '../../hooks/useSearch';
-import { TvShow } from '../../types/tvShow';
+  useGetSearchTvShowsQuery,
+} from 'services/movies';
+import useSearch from 'hooks/useSearch';
+import { TvShow } from 'types/tvShow';
+
 export default function useTvShowsPage() {
   const { value, query, currentPage, onChangeSearch, setCurrentPage } =
     useSearch();

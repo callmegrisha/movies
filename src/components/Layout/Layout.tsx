@@ -1,7 +1,7 @@
+import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { Nav } from '../Nav';
 import { Content } from '../Content';
-import { Outlet } from 'react-router-dom';
 
 export function Layout() {
   return (

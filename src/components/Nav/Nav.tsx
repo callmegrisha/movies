@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Box, MenuItem, MenuList, useTheme } from '@mui/material';
 import { Bookmark, LiveTv, Theaters } from '@mui/icons-material';
-import { Logo } from '../../assets/svg/Logo';
+import { Logo } from 'assets/svg/Logo';
 
 export function Nav() {
   const { app } = useTheme();

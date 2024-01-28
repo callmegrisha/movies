@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from '../Layout/Layout';
-import { HomePage } from '../../pages/HomePage';
-import { BookmarksPage } from '../../pages/BookmarksPage';
-import { TvShowsPage } from '../../pages/TvShowsPage';
+import { Layout } from '../Layout';
+import { HomePage } from 'pages/HomePage';
+import { BookmarksPage } from 'pages/BookmarksPage';
+import { TvShowsPage } from 'pages/TvShowsPage';
 
 function App() {
   return (

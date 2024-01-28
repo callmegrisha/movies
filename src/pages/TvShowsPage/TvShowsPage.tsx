@@ -1,12 +1,12 @@
-import { Stack, Typography } from "@mui/material";
-import { TvShowsSkeleton } from "./TvShowsSkeleton";
-import useTvShowsPage from "./useTvShowsPage";
-import { BasePagination } from "../../components/BasePagination";
-import { SearchBar } from "../../components/SearchBar";
-import { TvList } from "../../components/TvList";
+import { Stack, Typography } from '@mui/material';
+import { BasePagination } from 'components/BasePagination';
+import { SearchBar } from 'components/SearchBar';
+import { TvList } from 'components/TvList';
+import useTvShowsPage from './useTvShowsPage';
+import { TvShowsSkeleton } from './TvShowsSkeleton';
 
 export function TvShowsPage() {
-	const {
+  const {
     value,
     onChangeSearch,
     setCurrentPage,
@@ -41,5 +41,5 @@ export function TvShowsPage() {
       </Stack>
       <TvList tvs={posts} />
     </>
-	);
+  );
 }

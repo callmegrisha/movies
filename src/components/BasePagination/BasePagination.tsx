@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link as PaginationLink } from 'react-router-dom';
 import { Pagination, PaginationItem } from '@mui/material';
 

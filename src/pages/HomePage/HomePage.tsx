@@ -1,9 +1,9 @@
 import { Stack, Typography } from '@mui/material';
-import { SearchBar } from '../../components/SearchBar';
-import { MoviesList } from '../../components/MoviesList';
+import { SearchBar } from 'components/SearchBar';
+import { MoviesList } from 'components/MoviesList';
+import { BasePagination } from 'components/BasePagination';
 import { HomePageSkeleton } from './HomePageSkeleton';
 import useHomePage from './useHomePage';
-import { BasePagination } from '../../components/BasePagination';
 
 export function HomePage() {
   const {

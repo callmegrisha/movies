@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
-import {
-  useGetAllMoviesQuery,
-  useGetSearchMoviesQuery,
-} from '../../services/movies';
-import { Movie } from '../../types';
-import useSearch from '../../hooks/useSearch';
+import { useGetAllMoviesQuery, useGetSearchMoviesQuery } from 'services/movies';
+import { Movie } from 'types';
+import useSearch from 'hooks/useSearch';
 
 export default function useHomePage() {
   const { value, query, currentPage, onChangeSearch, setCurrentPage } =

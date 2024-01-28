@@ -9,11 +9,11 @@ import {
   useTheme,
 } from '@mui/material';
 import Image from 'mui-image';
-import { Movie } from '../../types';
-import { createGenresCollection } from '../../utils/createGenresCollection';
-import { getFullYearFromString } from '../../utils/getFullYearFromString';
-import { useGetAllMovieGenresQuery } from '../../services/movies';
-import { CircleDivider } from '../../assets/svg/CircleDivider';
+import { Movie } from 'types';
+import { useGetAllMovieGenresQuery } from 'services/movies';
+import { createGenresCollection } from 'utils/createGenresCollection';
+import { getFullYearFromString } from 'utils/getFullYearFromString';
+import { CircleDivider } from 'assets/svg/CircleDivider';
 
 export function MovieCard({
   id,

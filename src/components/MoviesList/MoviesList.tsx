@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { Movie } from '../../types';
+import { Movie } from 'types';
 import { MovieCard } from '../MovieCard';
 
 interface MoviesListProps {

@@ -9,18 +9,20 @@ import {
   useTheme,
 } from '@mui/material';
 import Image from 'mui-image';
-import { createGenresCollection } from '../../utils/createGenresCollection';
-import { getFullYearFromString } from '../../utils/getFullYearFromString';
-import { useGetAllTvGenresQuery } from '../../services/movies';
-import { CircleDivider } from '../../assets/svg/CircleDivider';
-import { TvShow } from '../../types/tvShow';
+import { TvShow } from 'types/tvShow';
+import { useGetAllTvGenresQuery } from 'services/movies';
+import { createGenresCollection } from 'utils/createGenresCollection';
+import { getFullYearFromString } from 'utils/getFullYearFromString';
+import { CircleDivider } from 'assets/svg/CircleDivider';
 
-export function TvCard({  id,
+export function TvCard({
+  id,
   backdrop_path,
   first_air_date,
   genre_ids,
-  name}: TvShow) {
-	const { app } = useTheme();
+  name,
+}: TvShow) {
+  const { app } = useTheme();
   const { data: { genres } = {} } = useGetAllTvGenresQuery(null);
   const genresCollection = createGenresCollection(genres);
 

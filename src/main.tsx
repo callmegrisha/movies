@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
-import App from './components/App';
-import theme from './theme';
-import { store } from './services/store';
+import App from 'components/App';
+import theme from 'theme';
+import { store } from 'services/store';
 import '@fontsource/outfit/300.css';
 import '@fontsource/outfit/500.css';
 
