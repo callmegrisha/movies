@@ -1,30 +1,20 @@
+import classNames from 'classnames';
 import { ChangeEvent } from 'react';
-import { useTheme } from '@emotion/react';
-import { Search } from '@mui/icons-material';
-import { Box, FormControl, TextField, Theme } from '@mui/material';
+import { SearchBarProps } from './SearchBar.interface.ts';
+import { SearchIcon } from 'assets/svg/SearchIcon.tsx';
+import styles from './SearchBar.module.scss';
 
-interface SearchBarProps {
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export function SearchBar({ value, onChange }: SearchBarProps) {
-  const { app } = useTheme() as Theme;
-
+export function SearchBar({ className, value, onChange }: SearchBarProps) {
   return (
-    <FormControl variant="standard" sx={{ width: '100%', mb: 4 }}>
-      <Box
-        sx={{ display: 'flex', alignItems: 'center	', gap: 3.5, width: '100%' }}
-      >
-        <Search sx={{ fontSize: 32, fill: app.pureWhite }} />
-        <TextField
-          placeholder="Search for movies or TV series"
-          type="search"
-          variant="standard"
-          value={value}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e)}
-        />
-      </Box>
-    </FormControl>
+    <div className={classNames(styles['search-bar'], className || '')}>
+      <SearchIcon className={styles['search-bar__icon']} />
+      <input
+        className={styles['search-bar__input']}
+        placeholder="Search for movies or TV series"
+        type="search"
+        value={value}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e)}
+      />
+    </div>
   );
 }

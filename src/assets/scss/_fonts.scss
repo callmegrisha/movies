@@ -1,0 +1,12 @@
+@mixin font-face($name, $weight, $src) {
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    font-display: swap;
+    font-style: normal;
+    src: url($src + '.woff2') format('woff2');
+  }
+}
+
+@include font-face('Outfit', 300, '../fonts/Outfit-Light');
+@include font-face('Outfit', 500, '../fonts/Outfit-Medium');

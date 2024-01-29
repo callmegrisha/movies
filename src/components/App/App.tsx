@@ -1,17 +1,57 @@
+import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from '../Layout';
-import { HomePage } from 'pages/HomePage';
-import { BookmarksPage } from 'pages/BookmarksPage';
-import { TvShowsPage } from 'pages/TvShowsPage';
+const HomePage = lazy(() => import('pages/HomePage'));
+const BookmarksPage = lazy(() => import('pages/BookmarksPage'));
+const TvShowsPage = lazy(() => import('pages/TvShowsPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="/tvshows" element={<TvShowsPage />} />
-        <Route path="/bookmarks" element={<BookmarksPage />} />
+        <Route
+          index
+          element={
+            <Suspense>
+              <HomePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/tvshows"
+          element={
+            <Suspense>
+              <TvShowsPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/bookmarks"
+          element={
+            <Suspense>
+              <BookmarksPage />
+            </Suspense>
+          }
+        />
       </Route>
+      <Route
+        path="/register"
+        element={
+          <Suspense>
+            <RegisterPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          <Suspense>
+            <LoginPage />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 }

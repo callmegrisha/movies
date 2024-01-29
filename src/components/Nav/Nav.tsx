@@ -1,91 +1,38 @@
-import { NavLink } from 'react-router-dom';
-import { Box, MenuItem, MenuList, useTheme } from '@mui/material';
-import { Bookmark, LiveTv, Theaters } from '@mui/icons-material';
+import classNames from 'classnames';
+import { Link, NavLink } from 'react-router-dom';
 import { Logo } from 'assets/svg/Logo';
+import { MoviesIcon } from 'assets/svg/MoviesIcon';
+import { TvShowsIcon } from 'assets/svg/TvShowsIcon';
+import { BookmarksIcon } from 'assets/svg/BookmarksIcon';
+import styles from './Nav.module.scss';
 
 export function Nav() {
-  const { app } = useTheme();
-  const isActive = ({ isActive }: { isActive: boolean }) => ({
-    color: isActive ? app.pureWhite : app.greyishBlue,
-  });
+  const isActive = ({ isActive }: { isActive: boolean }) =>
+    isActive
+      ? classNames(styles.nav__link, styles['nav__link--active'])
+      : styles.nav__link;
   return (
-    <Box
-      sx={{
-        maxWidth: 96,
-        py: 4,
-        px: 3.5,
-        backgroundColor: app.semiDarkBlue,
-        borderRadius: 5,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
-      <Box sx={{ mb: 9.5 }}>
+    <nav className={styles.nav}>
+      <Link to="/" className={styles.nav__logo}>
         <Logo />
-      </Box>
-      <MenuList sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-        <MenuItem
-          sx={{
-            p: 0,
-            width: 20,
-            height: 20,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <NavLink to="/" style={isActive}>
-            <Theaters
-              sx={{
-                color: 'inherit',
-                fontSize: 30,
-                ':hover': { fill: app.red },
-              }}
-            />
+      </Link>
+      <ul className={classNames(styles.nav__list, 'list-reset')}>
+        <li className={styles.nav__item}>
+          <NavLink to="/" className={isActive}>
+            <MoviesIcon />
           </NavLink>
-        </MenuItem>
-        <MenuItem
-          sx={{
-            p: 0,
-            width: 20,
-            height: 20,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <NavLink to="/tvshows" style={isActive}>
-            <LiveTv
-              sx={{
-                color: 'inherit',
-                fontSize: 30,
-                ':hover': { fill: app.red },
-              }}
-            />
+        </li>
+        <li className={styles.nav__item}>
+          <NavLink to="/tvshows" className={isActive}>
+            <TvShowsIcon />
           </NavLink>
-        </MenuItem>
-        <MenuItem
-          sx={{
-            p: 0,
-            width: 20,
-            height: 20,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <NavLink to="/bookmarks" style={isActive}>
-            <Bookmark
-              sx={{
-                color: 'inherit',
-                fontSize: 30,
-                ':hover': { fill: app.red },
-              }}
-            />
+        </li>
+        <li className={styles.nav__item}>
+          <NavLink to="/bookmarks" className={isActive}>
+            <BookmarksIcon />
           </NavLink>
-        </MenuItem>
-      </MenuList>
-    </Box>
+        </li>
+      </ul>
+    </nav>
   );
 }

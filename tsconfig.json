@@ -26,7 +26,6 @@
       "hooks/*": ["hooks/*"],
       "pages/*": ["pages/*"],
       "services/*": ["services/*"],
-      "theme/*": ["theme/*"],
       "types/*": ["types/*"],
       "utils/*": ["utils/*"]
     }

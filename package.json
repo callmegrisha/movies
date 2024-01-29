@@ -12,22 +12,17 @@
     "component": "generate-react component"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@fontsource/outfit": "^5.0.8",
-    "@mui/icons-material": "^5.15.3",
-    "@mui/material": "^5.15.3",
     "@reduxjs/toolkit": "^2.0.1",
+    "classnames": "^2.5.1",
     "lodash.debounce": "^4.0.8",
-    "mui-image": "^1.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.4",
-    "react-router-dom": "^6.21.1"
+    "react-router-dom": "^6.21.1",
+    "sass": "^1.70.0"
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.9",
-    "@types/mui-image": "^1.0.5",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

@@ -1,10 +1,8 @@
-import { ReactNode } from 'react';
-import { Box } from '@mui/material';
+import { ContentProps } from './Content.interface.ts';
+import styles from './Content.module.scss';
 
-interface ContentProps {
-  children: ReactNode;
-}
+
 
 export function Content({ children }: ContentProps) {
-  return <Box>{children}</Box>;
+  return <div className={styles.content}>{children}</div>;
 }

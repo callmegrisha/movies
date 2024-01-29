@@ -1,2 +1,2 @@
-import { BookmarksPage } from './BookmarksPage';
-export { BookmarksPage };
+import BookmarksPage from './BookmarksPage';
+export default BookmarksPage;

@@ -1,11 +1,11 @@
-import { Stack, Typography } from '@mui/material';
-import { BasePagination } from 'components/BasePagination';
+import classNames from 'classnames';
+import { Pagination } from 'components/Pagination';
 import { SearchBar } from 'components/SearchBar';
 import { TvList } from 'components/TvList';
 import useTvShowsPage from './useTvShowsPage';
-import { TvShowsSkeleton } from './TvShowsSkeleton';
+import styles from 'pages/HomePage/HomePage.module.scss';
 
-export function TvShowsPage() {
+export default function TvShowsPage() {
   const {
     value,
     onChangeSearch,
@@ -18,28 +18,35 @@ export function TvShowsPage() {
     searchError,
     searchLoading,
   } = useTvShowsPage();
+
   if (tvError || searchError) {
-    return <Typography variant="headingL">Posts not upload...</Typography>;
+    return (
+      <h1 className={classNames(styles.movies__title, 'heading-l')}>
+        Posts not upload...
+      </h1>
+    );
   }
 
-  if (tvLoading || searchLoading) return <TvShowsSkeleton />;
+  if (tvLoading || searchLoading) return <h1 className={classNames(styles.movies__title, 'heading-l')}>Loading...</h1>;
+
   return (
-    <>
-      <SearchBar onChange={onChangeSearch} value={value} />
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        marginBottom={4}
-      >
-        <Typography variant="headingL">TvShows</Typography>
-        <BasePagination
+    <section className={styles.movies}>
+      <SearchBar
+        className={styles.movies__search}
+        onChange={onChangeSearch}
+        value={value}
+      />
+      <div className={styles.movies__head}>
+        <h1 className={classNames(styles.movies__title, 'heading-l')}>
+          TvShows
+        </h1>
+        <Pagination
           pageQty={pageQty}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-      </Stack>
+      </div>
       <TvList tvs={posts} />
-    </>
+    </section>
   );
 }

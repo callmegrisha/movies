@@ -1,29 +1,22 @@
-import { Box, Typography } from '@mui/material';
+import classNames from 'classnames';
 import { TvShow } from 'types/tvShow';
 import { TvCard } from '../TvCard';
-
-interface TvListProps {
-  tvs: TvShow[];
-}
+import { TvListProps } from './TvList.interface.ts';
+import styles from './TvList.module.scss';
 
 export function TvList({ tvs }: TvListProps) {
   return (
     <>
       {tvs && tvs.length > 0 ? (
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            rowGap: 4,
-            columnGap: 5,
-          }}
-        >
-          {tvs?.map((tv: TvShow) => <TvCard key={tv.id} {...tv} />)}
-        </Box>
+        <ul className={classNames(styles['tv-list'], 'list-reset')}>
+          {tvs?.map((tv: TvShow) => (
+            <li>
+              <TvCard key={tv.id} {...tv} />
+            </li>
+          ))}
+        </ul>
       ) : (
-        <Typography variant="headingL" sx={{ display: 'block', mb: 4 }}>
-          Movies not found
-        </Typography>
+        <h1 className="heading-l">Movies not found</h1>
       )}
     </>
   );

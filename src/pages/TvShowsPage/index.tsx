@@ -1,2 +1,2 @@
-import { TvShowsPage } from './TvShowsPage';
-export { TvShowsPage };
+import TvShowsPage from './TvShowsPage';
+export default TvShowsPage;

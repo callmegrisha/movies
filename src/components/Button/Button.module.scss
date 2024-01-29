@@ -1,0 +1,18 @@
+.button {
+  background-color: var(--colors-red);
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  color: var(--colors-pure-white);
+  font-weight: var(--fw-light);
+  font-size: var(--fz-body-m);
+  cursor: pointer;
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--colors-semi-dark-blue);
+    background-color: var(--colors-pure-white);
+  }
+}

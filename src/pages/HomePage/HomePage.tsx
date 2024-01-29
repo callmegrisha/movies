@@ -1,11 +1,11 @@
-import { Stack, Typography } from '@mui/material';
+import classNames from 'classnames';
 import { SearchBar } from 'components/SearchBar';
 import { MoviesList } from 'components/MoviesList';
-import { BasePagination } from 'components/BasePagination';
-import { HomePageSkeleton } from './HomePageSkeleton';
+import { Pagination } from 'components/Pagination';
 import useHomePage from './useHomePage';
+import styles from './HomePage.module.scss';
 
-export function HomePage() {
+export default function HomePage() {
   const {
     value,
     onChangeSearch,
@@ -20,28 +20,33 @@ export function HomePage() {
   } = useHomePage();
 
   if (moviesError || searchError) {
-    return <Typography variant="headingL">Posts not upload...</Typography>;
+    return (
+      <h1 className={classNames(styles.movies__title, 'heading-l')}>
+        Posts not upload...
+      </h1>
+    );
   }
 
-  if (moviesLoading || searchLoading) return <HomePageSkeleton />;
+  if (moviesLoading || searchLoading) return <h1 className={classNames(styles.movies__title, 'heading-l')}>Loading...</h1>;
 
   return (
-    <>
-      <SearchBar onChange={onChangeSearch} value={value} />
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        marginBottom={4}
-      >
-        <Typography variant="headingL">Movies</Typography>
-        <BasePagination
+    <section className={styles.movies}>
+      <SearchBar
+        className={styles.movies__search}
+        onChange={onChangeSearch}
+        value={value}
+      />
+      <div className={styles.movies__head}>
+        <h1 className={classNames(styles.movies__title, 'heading-l')}>
+          Movies
+        </h1>
+        <Pagination
           pageQty={pageQty}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-      </Stack>
+      </div>
       <MoviesList movies={posts} />
-    </>
+    </section>
   );
 }

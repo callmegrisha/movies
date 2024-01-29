@@ -1,0 +1,25 @@
+.movies {
+  &__search {
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__title {
+    font-weight: var(--fw-medium);
+    margin: 0;
+  }
+}

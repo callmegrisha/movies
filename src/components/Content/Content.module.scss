@@ -1,0 +1,11 @@
+.content {
+  padding: 64px 36px 36px 164px;
+
+  @media (max-width: 1440px) {
+    padding: 128px 24px 24px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 128px 16px 16px;
+  }
+}

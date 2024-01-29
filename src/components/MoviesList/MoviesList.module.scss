@@ -1,0 +1,16 @@
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  column-gap: 40px;
+  row-gap: 32px;
+
+  @media (max-width: 1440px) {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}

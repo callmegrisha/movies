@@ -1,31 +1,22 @@
-import { Box, Typography } from '@mui/material';
+import classNames from 'classnames';
 import { Movie } from 'types';
 import { MovieCard } from '../MovieCard';
-
-interface MoviesListProps {
-  movies: Movie[] | undefined;
-}
+import { MoviesListProps } from './MoviesList.interface.ts';
+import styles from './MoviesList.module.scss';
 
 export function MoviesList({ movies }: MoviesListProps) {
   return (
     <>
       {movies && movies.length > 0 ? (
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            rowGap: 4,
-            columnGap: 5,
-          }}
-        >
+        <ul className={classNames(styles['movies-list'], 'list-reset')}>
           {movies?.map((movie: Movie) => (
-            <MovieCard key={movie.id} {...movie} />
+            <li>
+              <MovieCard key={movie.id} {...movie} />
+            </li>
           ))}
-        </Box>
+        </ul>
       ) : (
-        <Typography variant="headingL" sx={{ display: 'block', mb: 4 }}>
-          Movies not found
-        </Typography>
+        <h1 className="heading-l">Movies not found</h1>
       )}
     </>
   );
