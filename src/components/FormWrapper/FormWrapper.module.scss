@@ -1,0 +1,11 @@
+.form-wrapper {
+  width: 100%;
+  padding: 32px;
+  border-radius: 20px;
+  background-color: var(--colors-semi-dark-blue);
+
+  &__title {
+    font-weight: 300;
+    margin: 0 0 40px 0;
+  }
+}

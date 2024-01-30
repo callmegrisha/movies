@@ -1,5 +1,9 @@
-export const Logo = () => (
+interface LogoProps {
+  className?: string;
+}
+export const Logo = ({ className }: LogoProps) => (
   <svg
+    className={className}
     width="33"
     height="26"
     viewBox="0 0 33 26"

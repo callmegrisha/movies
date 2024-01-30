@@ -3,7 +3,7 @@ import { Nav } from '../Nav';
 import { Content } from '../Content';
 
 export function Layout() {
-  const isAuth = true;
+  const isAuth = false;
   return isAuth ? (
     <>
       <Nav />
