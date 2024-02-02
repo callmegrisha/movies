@@ -27,7 +27,12 @@ export default function TvShowsPage() {
     );
   }
 
-  if (tvLoading || searchLoading) return <h1 className={classNames(styles.movies__title, 'heading-l')}>Loading...</h1>;
+  if (tvLoading || searchLoading)
+    return (
+      <h1 className={classNames(styles.movies__title, 'heading-l')}>
+        Loading...
+      </h1>
+    );
 
   return (
     <section className={styles.movies}>

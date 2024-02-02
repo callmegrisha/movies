@@ -23,7 +23,7 @@ export function MovieCard({
         <img
           src={'https://image.tmdb.org/t/p/w500/' + backdrop_path}
           alt={title}
-          loading='lazy'
+          loading="lazy"
         />
         <button className={styles.card__bookmark} type="button">
           <BookmarkIcon />

@@ -2,7 +2,7 @@ import React, { ChangeEvent, useCallback, useState } from 'react';
 import debounce from 'lodash.debounce';
 import useInput from './useInput';
 
-interface UseSearchResult {
+interface UseSearchReturnType {
   value: string;
   query: string;
   currentPage: number;
@@ -10,7 +10,7 @@ interface UseSearchResult {
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function useSearch(): UseSearchResult {
+export default function useSearch(): UseSearchReturnType {
   const { value, onChange } = useInput('');
   const [query, setQuery] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);

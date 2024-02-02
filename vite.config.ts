@@ -13,6 +13,8 @@ export default defineConfig({
       services: '/src/services',
       types: '/src/types',
       utils: '/src/utils',
+      features: '/src/features',
+      hoc: '/src/hoc',
     },
   },
 });

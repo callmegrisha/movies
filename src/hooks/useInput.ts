@@ -1,9 +1,14 @@
 import { ChangeEvent, useState } from 'react';
 
-export default function useInput(initialValue: string) {
+interface UseInputReturnType {
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+export default function useInput(initialValue: string): UseInputReturnType {
   const [value, setValue] = useState<string>(initialValue);
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setValue(e.target.value);
   };
 

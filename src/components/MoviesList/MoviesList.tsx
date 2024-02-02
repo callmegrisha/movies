@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { Movie } from 'types';
 import { MovieCard } from '../MovieCard';
-import { MoviesListProps } from './MoviesList.interface.ts';
+import { MoviesListProps } from './MoviesList.props.ts';
 import styles from './MoviesList.module.scss';
 
 export function MoviesList({ movies }: MoviesListProps) {
@@ -10,8 +10,8 @@ export function MoviesList({ movies }: MoviesListProps) {
       {movies && movies.length > 0 ? (
         <ul className={classNames(styles['movies-list'], 'list-reset')}>
           {movies?.map((movie: Movie) => (
-            <li>
-              <MovieCard key={movie.id} {...movie} />
+            <li key={movie.id}>
+              <MovieCard {...movie} />
             </li>
           ))}
         </ul>

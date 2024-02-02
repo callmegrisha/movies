@@ -27,7 +27,9 @@
       "pages/*": ["pages/*"],
       "services/*": ["services/*"],
       "types/*": ["types/*"],
-      "utils/*": ["utils/*"]
+      "utils/*": ["utils/*"],
+      "features/*": ["features/*"],
+      "hoc/*": ["hoc/*"]
     }
   },
   "include": ["src"],

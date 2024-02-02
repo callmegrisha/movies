@@ -1,18 +1,18 @@
 import { HttpMethods } from 'types';
 
-interface RequestOptions {
+interface RequestOptions<T> {
   url: string;
   method: HttpMethods;
   headers: Record<string, string>;
-  body?: Record<string, string>;
+  body?: T;
 }
 
-export const createRequest = (
+export const createRequest = <T>(
   url: string,
   method: HttpMethods,
   headers: Record<string, string>,
-  body?: Record<string, string>
-): RequestOptions => ({
+  body?: T
+): RequestOptions<T> => ({
   url,
   method,
   headers,

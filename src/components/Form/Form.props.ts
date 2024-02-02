@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-export interface FormWrapperProps {
+export interface FormProps {
   className?: string;
-  title?: string;
   children: ReactNode;
+  onSubmit: () => void;
 }

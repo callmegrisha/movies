@@ -27,7 +27,13 @@ export default function HomePage() {
     );
   }
 
-  if (moviesLoading || searchLoading) return <h1 className={classNames(styles.movies__title, 'heading-l')}>Loading...</h1>;
+  if (moviesLoading || searchLoading) {
+    return (
+      <h1 className={classNames(styles.movies__title, 'heading-l')}>
+        Loading...
+      </h1>
+    );
+  }
 
   return (
     <section className={styles.movies}>

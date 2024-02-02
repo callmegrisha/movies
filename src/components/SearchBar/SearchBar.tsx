@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { ChangeEvent } from 'react';
-import { SearchBarProps } from './SearchBar.interface.ts';
+import { SearchBarProps } from './SearchBar.props.ts';
 import { SearchIcon } from 'assets/svg/SearchIcon.tsx';
 import styles from './SearchBar.module.scss';
 

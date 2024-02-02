@@ -28,7 +28,7 @@ export function TvCard({
               : placeholder
           }
           alt={name}
-          loading='lazy'
+          loading="lazy"
         />
         <button className={styles.card__bookmark} type="button">
           <BookmarkIcon />

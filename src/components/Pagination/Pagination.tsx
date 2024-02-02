@@ -1,7 +1,6 @@
 import { Button } from 'components/Button';
-import { BasePaginationProps } from './Pagination.interface.ts';
+import { BasePaginationProps } from './Pagination.props.ts';
 import styles from './Pagination.module.scss';
-
 
 export function Pagination({
   pageQty,
