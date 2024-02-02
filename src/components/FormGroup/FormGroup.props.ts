@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export interface FormMessageProps {
+export interface FormGroupProps {
   className?: string;
   children: ReactNode;
 }

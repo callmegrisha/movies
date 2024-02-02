@@ -1,7 +1,13 @@
 import Cookies from 'js-cookie';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { FieldErrors, SubmitHandler, useForm, UseFormHandleSubmit, UseFormRegister } from 'react-hook-form';
+import {
+  FieldErrors,
+  SubmitHandler,
+  useForm,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from 'react-hook-form';
 import { useAuthMutation } from 'services/users';
 import { RootState, useAppDispatch } from 'services/store.ts';
 import { setCredentials } from 'features/auth/authSlice.ts';
@@ -31,7 +37,9 @@ export default function useLoginForm(): UseLoginFormReturnType {
   const navigate = useNavigate();
   const { error } = useSelector((state: RootState) => state.auth);
 
-  const onSubmitLoginForm: SubmitHandler<Inputs> = async (credentials): Promise<void> => {
+  const onSubmitLoginForm: SubmitHandler<Inputs> = async (
+    credentials: Inputs
+  ): Promise<void> => {
     try {
       const { data, token } = await fetchLoginUser(credentials).unwrap();
       const { id, email } = data;
@@ -62,6 +70,6 @@ export default function useLoginForm(): UseLoginFormReturnType {
     handleSubmit,
     errors,
     error,
-    onSubmitLoginForm
-  }
+    onSubmitLoginForm,
+  };
 }
